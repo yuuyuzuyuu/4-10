@@ -1,1 +1,34 @@
 <h2>User info</h2>
+<table class="table">
+  <tr>
+    <th>name</th>
+    <th>name</th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th>introduction</th>
+  </tr>
+</table>
+
+  <% if @user.id == current_user.id %>
+    <p><%= link_to "編集のボタン", edit_user_path(@user) %></p>
+  <% end %>
+  
+<h2>New Book</h2>
+  <%= form_with model:@book, local:true do |f| %>
+    <label for="book_title">Title</label>
+      <%= f.text_field :title %>
+    <label for="book_opinion">Opinion</label>
+      <%= f.text_area :body %>
+    <%= f.submit 'Create Book' %>
+  <% end %>
+
+<h2>Books</h2>
+    <tr>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
