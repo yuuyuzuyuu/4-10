@@ -4,27 +4,46 @@
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/9ca6933941.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "Users", user_path(current_user.id)%>
-      </li>
-      <li>
-        <%= link_to "logout", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "sign up", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "login", new_user_session_path %>
-      </li>
-      <% end %>
-    <%= yield %>
+    <header class="bg-dark text-white">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand p-3 text-white" href="/">Bookers</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to "Users", user_path(current_user.id), class: 'nav-link text-white' %>
+              </li>
+              <li>
+                <%= link_to "logout", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "sign up", new_user_registration_path, class: 'nav-link text-white' %>
+              </li>
+              <li>
+                <%= link_to "login", new_user_session_path, class: 'nav-link text-white' %>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+        </div>  
+    </header>
+    <main>            
+      <%= yield %>
+    </main>
+    <footer>
+      <p>CopyRight Infratop.inc</p>
+    </footer>
   </body>
 </html>
