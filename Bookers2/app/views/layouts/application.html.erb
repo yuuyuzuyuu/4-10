@@ -22,12 +22,24 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li>
+                <%= link_to "Home", "/", class: 'nav-link text-white' %>
+              </li>
+              <li>
                 <%= link_to "Users", user_path(current_user.id), class: 'nav-link text-white' %>
+              </li>
+              <li>
+                Books
               </li>
               <li>
                 <%= link_to "logout", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
               </li>
             <% else %>
+              <li>
+                <%= link_to "Home", "/", class: 'nav-link text-white' %>
+              </li>
+              <li>
+                <%= link_to "About", "home_about", class: 'nav-link text-white' %>
+              </li>
               <li>
                 <%= link_to "sign up", new_user_registration_path, class: 'nav-link text-white' %>
               </li>
