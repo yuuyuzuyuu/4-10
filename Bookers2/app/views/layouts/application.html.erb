@@ -22,29 +22,45 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li>
-                <%= link_to "Home", "/", class: 'nav-link text-white' %>
+                <%= link_to "/", class: 'nav-link text-white' do %>
+                <i class="fas fa-home"> Home</i>
+                <% end %>
               </li>
               <li>
-                <%= link_to "Users", user_path(current_user.id), class: 'nav-link text-white' %>
+                <%= link_to user_path(current_user.id), class: 'nav-link text-white' do %>
+                <i class="fas fa-users"> Users</i>
+                <% end %>
               </li>
               <li>
-                Books
+                <%= link_to "/", class: 'nav-link text-white' do %>
+                <i class="fas fa-book-open"> Books</i>
+                <% end %>
               </li>
               <li>
-                <%= link_to "logout", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
+                <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-white' do %>
+                <i class="fas fa-sign-out-alt"> logout</i>
+                <% end %>
               </li>
             <% else %>
               <li>
-                <%= link_to "Home", "/", class: 'nav-link text-white' %>
+                <%= link_to "/", class: 'nav-link text-white' do %>
+                <i class="fas fa-home"> Home</i>
+                <% end %>
               </li>
               <li>
-                <%= link_to "About", "home_about", class: 'nav-link text-white' %>
+                <%= link_to "/home/about", class: 'nav-link text-white' do %>
+                <i class="fas fa-link"> About</i>
+                <% end %>
               </li>
               <li>
-                <%= link_to "sign up", new_user_registration_path, class: 'nav-link text-white' %>
+                <%= link_to new_user_registration_path, class: 'nav-link text-white' do %>
+                <i class="fas fa-user-plus"> sign up</i>
+                <% end %>
               </li>
               <li>
-                <%= link_to "login", new_user_session_path, class: 'nav-link text-white' %>
+                <%= link_to new_user_session_path, class: 'nav-link text-white' do %>
+                <i class="fas fa-sign-in-alt"> login</i>
+                <% end %>
               </li>
             <% end %>
             </ul>
@@ -54,7 +70,7 @@
     <main>            
       <%= yield %>
     </main>
-    <footer>
+    <footer class="text-center mt-5">
       <p>CopyRight Infratop.inc</p>
     </footer>
   </body>
