@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-mid-3">
+      <h2>User info</h2>
       <%= render 'users/info', user: current_user %>
-    </div>
-    <div class="col-mid-3">
+      <h2>New Book</h2>
       <%= render 'books/new', book: @book %>
     </div>
 
-    <div class="col-md-8 offset-md-1">
+    <div class="col-xs-9">
       <h2>Users</h2>
       <table class="users">
         <thead>
@@ -18,13 +18,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>image</th>
-            <%= @users.each do |user| %>
-            <th><%= user.name %></th>
-            <% end %>
-            <th>show</th>
-          </tr>
+          <% @users.each do |user| %>
+            <tr>
+              <td>image</td>
+              <td><%= user.name %></td>
+              <td>show</td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
