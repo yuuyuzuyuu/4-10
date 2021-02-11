@@ -1,6 +1,11 @@
-<%= render 'users/info', user: current_user %>
-<%= render 'books/new', book: @book %>
-
+<div class="container">
+  <div class="row">
+    <div class="col-mid-3">
+      <%= render 'users/info', user: current_user %>
+    </div>
+    <div class="col-mid-3">
+      <%= render 'books/new', book: @book %>
+    </div>
 
 <h2>Books</h2>
   <table class="books">
@@ -14,10 +19,12 @@
     <tbody>
       <% @books.each do |book| %>
       <tr>
-        <td><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg' %></td>
-        <td><%= book.title %></td>
-        <td><%= book.body %></td>
+        <th><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg' %></th>
+        <th><%= book.title %></th>
+        <th><%= book.body %></th>
       <tr>
     </tbody>
   </table>
   <% end %>
+    </div>
+  </div>

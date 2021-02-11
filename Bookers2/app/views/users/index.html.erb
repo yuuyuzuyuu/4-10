@@ -7,24 +7,26 @@
       <%= render 'books/new', book: @book %>
     </div>
 
-    <h2>Users</h2>
-    <table class="users">
-      <thead>
-        <tr>
-          <th>image</th>
-          <th>name</th>
-          <th>show</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <%= @users.each do |user| %>
-          <th>image</th>
-          <th><%= user.name %></th>
-          <th>show</th>
-        </tr>
-      </tbody>
-    </table>
-    <% end %>
+    <div class="col-md-8 offset-md-1">
+      <h2>Users</h2>
+      <table class="users">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th>show</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>image</th>
+            <%= @users.each do |user| %>
+            <th><%= user.name %></th>
+            <% end %>
+            <th>show</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

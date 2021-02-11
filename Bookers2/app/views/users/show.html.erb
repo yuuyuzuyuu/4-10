@@ -1,8 +1,10 @@
-<%= render 'users/info', user: @user %>
-
-  <% if @user.id == current_user.id %>
-    <p><%= link_to edit_user_path(@user) do %>
-    <i class="fas fa-user-cog"></i>
-    <% end %>
-  <% end %>
-  
+<div class="container">
+  <div class="row">
+    <div class="col-mid-3">
+      <%= render 'users/info', user: @user %>
+    </div>
+    <div class="col-mid-3">
+      <%= render 'books/new', book: @book %>
+    </div>
+  </div>
+</div>
