@@ -1,6 +1,7 @@
-<p id="notice">
-  <%= notice %>
-</p>
+
+<% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
 
 <div class="container">
   <div class="row">
@@ -11,7 +12,7 @@
       <%= render 'books/new', book: @books %>
     </div>
     
-      <div class="col-md-9">
+      <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
         <table class="table">
           <thead>

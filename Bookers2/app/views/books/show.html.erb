@@ -7,11 +7,11 @@
 
     <div class="col-md-3">
       <h2>User info</h2>
-      <%= render 'users/info', user: current_user %>
+      <%= render 'users/info', user: @user %>
       <%= render 'books/new', book: @book_new %>
     </div>
 
-  <div class="col-md-9">
+  <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
         <table class="table">
           <tbody>
@@ -33,7 +33,7 @@
                 <%= link_to "Edit", edit_book_path(@book), class: "btn-success btn-sm text-center" %>
               </td>
               <td>
-                <%= link_to "Destroy", @book, method: :delete, data: {comfirm:"本当に削除しますか？"}, class: "btn-danger btn-sm text-center" %>
+                <%= link_to "Destroy", @book, method: :delete, "data-comfirm" => "本当に削除しますか？", class: "btn-danger btn-sm text-center" %>
               </td>
             <% end %>
             </tr>
