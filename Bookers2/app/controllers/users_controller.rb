@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   before_action :authenticate_user!
-  before_action :baria_user, only: [:edit, :update]
+  before_action :current_user, only: [:edit, :update]
   
   def index
     @users = User.all
