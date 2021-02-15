@@ -2,13 +2,28 @@
   <div class="row">
     <div class="ml-1">
       <h2>Editing Book</h2>
-        <%= form_with model: @book, local:true do |f| %>
+      
+      <% if @book.errors.any? %>
+        <%= @book.errors.count %>errors
+          <% @book.errors.full_messages.each do |message| %>
+            <ul>
+              <li><%= message %></li>
+            </ul>
+          <% end %>
+      <% end %>
+      
+        <%= form_with model:@book, local:true do |f| %>
         <label>Title</label><br>
           <%= f.text_field :title %><br>
         <label>Opinion</label><br>
           <%= f.text_area :body %><br>
         <button class="btn btn-success" type="submit">Update Book</button>
         <% end %>
+        
+        <%= link_to "Show", book_path(@book.id) %>
+         | 
+        <%= link_to "Back", "/books" %>
+
     </div>
   </div>
 </div>

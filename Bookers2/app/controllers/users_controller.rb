@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   
+  before_action :authenticate_user!
+  before_action :baria_user, only: [:edit, :update]
+  
   def index
     @users = User.all
     @book = Book.new
@@ -7,7 +10,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @book = Book.find(params[:id])
+    @book = Book.new
     @books = @user.books
   end
 
@@ -17,8 +20,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
+    if @user.update(user_params)
+      redirect_to user_path(@user), notice: "successfully updated."
+    else
+      render action: :edit
+    end
   end
   
   private

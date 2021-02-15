@@ -1,3 +1,7 @@
+<p id="notice">
+  <%= notice %>
+</p>
+
 <div class="container">
   <div class="row">
 
@@ -5,7 +9,7 @@
       <h2>User info</h2>
       <%= render 'users/info', user: current_user %>
       <h2>New Book</h2>
-      <%= render 'books/new', book: @book %>
+      <%= render 'books/new', book: @book_new %>
     </div>
 
   <div class="col-lg-9">
@@ -30,7 +34,7 @@
                 <%= link_to "Edit", edit_book_path(@book), class: "btn-success btn-sm text-center" %>
               </td>
               <td>
-                <%= link_to "Destroy", book_path(@book), method: :delete, class: "btn-danger btn-sm text-center" %>
+                <%= link_to "Destroy", @book, method: :delete, data: {comfirm:"本当に削除しますか？"}, class: "btn-danger btn-sm text-center" %>
               </td>
             <% end %>
             </tr>
