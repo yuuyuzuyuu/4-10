@@ -1,14 +1,15 @@
-  <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-  <table class="table">
-    <tr>
-      <th>name</th>
-      <th><%= user.name %></th>
-    </tr>
-    <tr>
-      <th>introduction</th>
-      <th><%= user.introduction %></th>
-    </tr>
-  </table>
-      <p><%= link_to edit_user_path(user) do %>
-      <button type="button" class="btn btn-outline-secondary btn-sm btn-block"><i class="fas fa-user-cog"></i></button></p>
-      <% end %>
+<table class="table">
+  <tr><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></tr>
+  <tr>
+    <th>name</th>
+    <th><%= user.name %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th><%= user.introduction %></th>
+  </tr>
+</table>
+
+  <p><%= link_to edit_user_path(user) do %>
+    <button type="button" class="btn btn-outline-secondary btn-sm btn-block"><i class="fas fa-user-cog"></i></button></p>
+  <% end %>
